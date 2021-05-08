@@ -1,4 +1,22 @@
 extends ./base.pug
 
 block content
-    h1 e
+    form.writeForm(action="#" method="POST")
+        div.writeWrapper
+            div.writeWrapper__guide TITLE
+            div.writeWrapper__content 
+                input(type="text" name="title")
+        div.writeWrapper        
+            div.writeWrapper__guide AUTHOR
+            div.writeWrapper__content 
+                input(type="text" name="author") 
+        div.descwriteWrapper
+            div.descwriteWrapper__guide DESC
+            div.descwriteWrapper__content
+                textarea(name="desc")
+
+        div.buttonArea
+            input(type="submit" value="EDIT") 
+
+    form.listForm(action="/" method="GET")
+        input(type="submit" value="LIST")             
