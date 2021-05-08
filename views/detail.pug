@@ -5,15 +5,22 @@ block content
         div.writeWrapper
             div.writeWrapper__guide TITLE
             div.writeWrapper__content 
-                input(type="text" name="title" readonly)
+                input(type="text" name="title" value=data.title readonly)
         div.writeWrapper        
             div.writeWrapper__guide AUTHOR
             div.writeWrapper__content 
-                input(type="text" name="author" readonly) 
+                input(type="text" name="author" value=data.author readonly) 
         div.descwriteWrapper
             div.descwriteWrapper__guide DESC
             div.descwriteWrapper__content
-                textarea(name="desc" readonly) 
+                textarea(name="desc" readonly)=data.description 
 
     form.listForm(action="/" method="GET")
-        input(type="submit" value="LIST")             
+        input(type="submit" value="LIST")   
+    if dev 
+        form.deleteForm(action="/deleteBoard", method="POST")
+            input(type="hidden" name="id" value=data._id)
+            input(type="submit" value="Delete")     
+        form.updateForm(action="/edit", method="GET")
+            input(type="hidden" name="id" value=data._id)
+            input(type="submit" value="Edit Page")         

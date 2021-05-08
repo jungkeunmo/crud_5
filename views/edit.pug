@@ -1,21 +1,22 @@
 extends ./base.pug
 
 block content
-    form.writeForm(action="#" method="POST")
+    form.writeForm(action="/editBoard" method="POST")
         div.writeWrapper
             div.writeWrapper__guide TITLE
             div.writeWrapper__content 
-                input(type="text" name="title")
+                input(type="text" name="title" value=data.title)
         div.writeWrapper        
             div.writeWrapper__guide AUTHOR
             div.writeWrapper__content 
-                input(type="text" name="author") 
+                input(type="text" name="author" value=data.author) 
         div.descwriteWrapper
             div.descwriteWrapper__guide DESC
             div.descwriteWrapper__content
-                textarea(name="desc")
+                textarea(name="desc")=data.description
 
         div.buttonArea
+            input(type="hidden" name="id" value=data._id)
             input(type="submit" value="EDIT") 
 
     form.listForm(action="/" method="GET")
